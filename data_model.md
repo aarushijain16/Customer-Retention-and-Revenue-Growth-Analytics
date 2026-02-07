@@ -2,8 +2,7 @@
 
 This project follows a **modular, city-level analytical data model** designed to support scalable customer behaviour analysis for a food delivery platform.
 
-Due to the absence of a unified relational database, the analysis uses **city-specific analytical datasets** generated in Python, queried using SQL (DuckDB), and consolidated for reporting and visualisation.
-
+The analysis uses Python for data preparation and feature engineering, a centralized PostgreSQL analytical table for SQL-based analysis, and Power BI for real-time reporting and visualisation.
 
 
 # Data Architecture
@@ -28,7 +27,7 @@ Due to the absence of a unified relational database, the analysis uses **city-sp
 
 ## 2. Python Processing Layer
 
-For each city (Islamabad, Karachi, Lahore, Multan, Peshawar):
+Using Python, the raw dataset is processed to create a unified analytical dataset:
 
 - Data cleaning and standardisation
 
@@ -39,21 +38,32 @@ For each city (Islamabad, Karachi, Lahore, Multan, Peshawar):
   - **Recency** → Time since last order
 
   - **Frequency** → Number of orders
+    
   - **Monetary** → Total order value
 
-- Customer-level analytical dataset creation 
+- Customer-level analytical revords are created at the customer-order grain, covering all cities:
 
-Each city dataset functions as an **analytical fact table** at the customer–order grain.
+   - Islamabad
+ 
+   - Lahore
+ 
+   - Karachi
+ 
+   - Multan
+ 
+   - Peshawar
+
+This step produces a clean, analysis-ready dataset with consistent schema across cities.
 
 
 
-## 3. SQL (DuckDB) Analysis Layer
+## 3. SQL (PostgreSQL) Analysis Layer
 
-City-level datasets are queried independently to generate:
+The processed dataset is stored in a PostgreSQL database and queried using SQL to generate:
 
 - Churn metrics
 
-- Retention proxies
+- Retention metrics
 
 - RFM-based segmentation outputs
 
@@ -61,23 +71,24 @@ City-level datasets are queried independently to generate:
 
 - Restaurant-level performance metrics
 
+Customer churn and retention are calculated directly using customer status, ensuring accurate customer-level analysis.
 
 ## 4. Consolidation Layer
 
-City-wise outputs are aggregated into:
+All city-level and segment-level metrics are derived from the centralized analytical table, enabling:
 
-- overall_churn
-  
-- overall_retention
+- Croos-city comparisons
 
-- retention_by_city
+- Consistent churn and retention calculations
 
-This allows **cross-city comparison** while preserving local behavioural characteristics.
+- Relaiable aggregation across segments
+
+This approach preserves local behavioural patterns while supporting platforms-wide insights.
 
 
 ## 5. Reporting Layer
 
-Final datasets are consumed in **Power BI** for:
+The PostgreSQL analytical table is connected to Power BI in real time for:
 
 - Churn analysis
 
@@ -87,13 +98,16 @@ Final datasets are consumed in **Power BI** for:
 
 - Business insight delivery
 
+Dashboards refresh automatically as new data is appended to the database.
 
 # Why this Model Works
 
 - Scales easily across cities
 
+- Maintains customer-level accuracy
+
 - Avoids over-aggregation bias
 
-- Mirrors real-world marketplace analytics
+- Mirrors real-world marketplace analytics pipelines
 
-- Clearly separates data engineering from insight generation
+- Supports real-time monitoring and decision-making
