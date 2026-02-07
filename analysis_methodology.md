@@ -37,9 +37,8 @@ RFM (Recency, Frequency, Monetary) scoring was used to quantify customer value a
 
 # Step 3: Churn Analysis
 
-As explicit churn labels were unavailable:
+Churn was analysed using an explicit customer churn flag dervied from platform activity status.
 
-- Churn defined using customer inactivity thresholds
 
 - Churn rates analysed across:
 
@@ -51,21 +50,27 @@ As explicit churn labels were unavailable:
 
   - Delivery and rating features
 
+This enabled preciseidentification of churned vs retained customers at a customer level.
 
+# Step 4: Retention Measurement
 
-# Step 4: Retention Proxy
+Retention was measured directly using retained customer status.
 
-Retention was approximated using:
+- Retention analysed across:
 
-- Order frequency
+  - RFM segments
+ 
+  - Demographics
+ 
+  - Cities
+ 
+  - Order and delivery features
 
-- Repeat purchase behaviour within the observation window
-
-This mirrors real-world scenarios where perfect lifecycle data is unavailable.
+This reflects realistic business scenarios where retention is tracked throuh customer activity rather than perfect lifecycle data.
 
 # Step 5: Performance Analysis
 
-Operational metrics analysed include:
+Operational and revenue metrics analysed include:
 
 - Revenue
 
@@ -73,10 +78,11 @@ Operational metrics analysed include:
 
 - Ratings
 
-- Delivery success
+- Delivery success, delays and cancellations
 
 - Restaurant-level performance
 
+Customer-level churn and retention metrics were linked with operational KPIs to identify revenue leakage drivers.
 
 
 # Step 6: Insight Synthesis
@@ -88,3 +94,5 @@ All analytical outputs were translated into:
 - Segment-level strategies
 
 - Actionable recommendations
+
+Insights were consolidated into a real-time Power BI dashboard connected to a PostgreSQL backend, enabling continuous monitoring and decision-making.
