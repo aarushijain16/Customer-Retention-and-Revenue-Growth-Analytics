@@ -51,66 +51,75 @@ I designed a customer retention and revenue analytics framework using transactio
 
 **🔹 Churn & Retention Analysis**
 
-- Overall churn and retention rates
+- Overall churn rate: **49.73%** (2,984 churned customers)
+
+- Overal retention rate: **50.27%** (3016 retained customers)
 
 - Churn segmented by RFM group, city, demographics, and order features
 
-- Retention proxy using order frequency for loyalty estimation
 
 **🔹 Performance & Revenue Analysis**
 
-- Revenue, AOV, ratings, and delivery performance KPIs
+- Total revenue generated: $14.3M
 
-- Cancellation and delay analysis
+- Average Order Value (AOV): $2.6K
+
+- Average ratng: 3.01
+
+- Cancelled delivery rate: 32.80%
+
+- Delayed delivery rate: 32.87%
+
+- On-Time delivery rate: 34.33%
 
 - Restaurant-level performance benchmarking
 
 **🔹 Executive Reporting**
 
-- Consolidated insights into a Power BI dashboard for decision-makers
+- Insights consolidate into a real-time Power BI dashboard connected to a PostgreSQL backend for continuous refresh and monitoring
 
 # Key Business Insights and Impact
 
 ## *(Estimated financial impact scaled to large food delivery platforms)*
 
-- Low-RFM customers showed 45–60% churn, while high-RFM customers had near-perfect retention
+- Low-RFM customers showed 49.73% churn, while high-RFM customers had significantly higher retention
  → Targeted retention campaigns unlocked $10–20M in revenue uplift
 
-- City-level churn varied significantly (Lahore highest, Peshawar lowest)
+- City-level churn varied significantly (Lahore highest, Karachi lowest)
  → Localized campaigns reduced churn, generating $5–15M impact
 
-- Delivery delays and cancellations drove churn even among high-rating orders
+- Delivery delays and cancellations accounted for ~66% of all orders, driving churn even among rated orders
  → Fixing operational bottlenecks recovered $10–25M in lost revenue
 
 - Top restaurants contributed a disproportionate share of revenue (e.g., KFC)
  → Strategic partnerships drove $5–15M incremental growth
 
-- Retention proxy showed strong repeat behavior potential in specific segments
- → Re-engagement strategies delivered $15–30M revenue upside
+- Clear retained-customer base of 3,016 users 
+ → Focused loyalty and re-engagement strategies delivered $15–30M revenue upside
 
 # Strategic Recommendations
 
 - Implement RFM-based customer segmentation for personalized offers
 
-- Protect and reward high-RFM customers with loyalty incentives
+- Protect and reward high-value retained customers with loyalty incentives
 
 - Target low-RFM, high-churn segments with reactivation campaigns
 
-- Improve delivery reliability for high-rating, high-value orders
-
+- Improve delivery reliability to reduce the 32%+ cancellation and delay rates
+  
 - Partner closely with top-performing restaurants for exclusive promotions
 
-- Monitor churn, retention, and performance weekly via dashboards
+- Monitor churn, retention, and performance weekly via real-time dashboards
 
 # Tools and Technologies
 
 - Python (Pandas, Scikit-learn)
 
-- SQL (DuckDB in Google Colab)
+- SQL (PostgreSQL)
 
-- Power BI
+- Power BI (Real-time dashboard refresh)
 
-- Customer Analytics: RFM, churn, retention proxies
+- Customer Analytics: RFM, churn, retention 
 
 - Data Engineering: city-level segmentation, feature engineering
 
@@ -156,7 +165,7 @@ I can adapt this framework to your actual data and deliver:
 
 - Python modeling
 
-- Power BI dashboards
+- Real-time Power BI dashboards
 
 - Clear, action-oriented recommendations
 
