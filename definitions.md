@@ -2,49 +2,46 @@
 
 ## Churn
 
-A customer is considered **churned** if they do not place an order within a defined inactivity window.
+A customer is considered churned if their status is marked as inactive in the dataset.
+This represents customers who have stopped engaging with the platform within the observed period.
 
 
-## Retention (Proxy)
+## Retention
 
-Retention is approximated using:
-
-- Repeat orders
-
-- Order frequency within the analysis period
-
+A customer is considered retained if their status is marked as active in the dataset.
+Retention is calculated directly at the customer level, ensuring accurate separation between churned and retained users.
 
 
 ## RFM Metrics
 
-- **Recency:** Days since last order
+- **Recency:** Days since the customer's last order
 
-- **Frequency:** Number of orders
+- **Frequency:** Number of orders placed by the customer
 
-- **Monetary:** Total spend
+- **Monetary:** Total spend across all orders
 
 
 
 ## RFM Segments
 
-- **High RFM:** Loyal, high-value customers
+- **High RFM:** Loyal, high-value customers with strong engagement
 
-- **Mid RFM:** Stable but price-sensitive users
+- **Mid RFM:** Moderately engaged, price-or-convenience-sensitive users
 
-- **Low RFM:** At-risk or one-time users
+- **Low RFM:** At-risk or low-engagement customers with hih churn likelihood
 
 ## Performance Metrics
 
-- **AOV:** Average Order Value
+- **AOV (Average Order Value):** Average reveue per order
 
-- **Revenue:** Total order value
+- **Revenue:** Total order value across all transactions
 
-- **Delivery Success:** Completed orders without cancellation
+- **Delivery Success:** Orders successfully delivered (non-cancelled)
 
-- **Rating:** Customer feedback score
+- **Rating:** Customer feedback score (excluding cancelled orders where rating = -1)
 
 
 
 ## Notes
 
-All definitions are designed to reflect **real-world marketplace analytics**, ensuring clarity, consistency, and business relevance.
+All metric definitions are designed to reflect real-world marketplace analytics, using customer-level churn and retention signals to ensure clarity, consistency, and business relevance.
